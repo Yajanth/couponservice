@@ -1,0 +1,11 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: jdbc:mysql://mcs-db.czi04io22yl5.us-east-1.rds.amazonaws.com:3306/servicedb
+    username: root
+    password: "ROOTroot"
+server:
+  port: 9095
+  
