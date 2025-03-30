@@ -1,6 +1,9 @@
 package com.tus.coupon.controller;
 
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.BufferedReader;
@@ -29,27 +32,21 @@ public class CouponRestController {
 //comment for version control
 	@Autowired
 	CouponRepo repo;
+    private static final Logger logger = LoggerFactory.getLogger(CouponRestController.class);
+
 
 	// this is called constructor based injection.
 	// you can now use normal mocks to test
-	/*
-	 * public CouponRestController(CouponRepo repo) { this.repo=repo; }
-	 */
 	// setter injection
-//	@Autowired
-//	public void setRepo(CouponRepo repo) {
-//		this.repo=repo;
-//	}
 
 	@PostMapping(value = "/coupons")
 	public ResponseEntity<Coupon> create(@RequestBody Coupon coupon) {
-		// return repo.save(coupon);
 		return new ResponseEntity<>(repo.save(coupon), HttpStatus.OK);
 	}
 
 	@GetMapping("/coupons/{code}")
 	Coupon getCouponByCouponCode(@PathVariable String code) {
-		System.out.println(code);
+		 logger.info(code);
 		return repo.findByCode(code);
 	}
 
