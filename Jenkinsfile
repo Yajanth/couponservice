@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools {
-        maven 'maven'  // Ensure Maven is installed in Jenkins
+        maven 'maven'  // Ensure Maven is installed in Jenkins- iNstalled
     }
     
     environment {
