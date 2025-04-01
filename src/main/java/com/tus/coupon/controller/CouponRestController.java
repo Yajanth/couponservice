@@ -36,7 +36,7 @@ public class CouponRestController {
 
 
 	// this is called constructor based injection.
-	// you can now use normal mocks to  the application
+	// you can now use normal mocks 
 	// setter injection
 
 	@PostMapping(value = "/coupons")
