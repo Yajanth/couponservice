@@ -14,7 +14,7 @@ ARG JOB_URL="http://192.168.1.23:8080/job/Coupon_Service_Automation"
 ARG JENKINS_USER="root"
 ARG JENKINS_PASSWORD="root"
 
-# Try downloading the latest successful build first, if it fails, fallback to the last build
+# Try to downloading the latest successful build first, if it fails, fallback to the last build
 RUN curl -u $JENKINS_USER:$JENKINS_PASSWORD -f -o app.jar "$JOB_URL/lastSuccessfulBuild/artifact/target/couponservice-0.0.1-SNAPSHOT.jar" \
     || curl -u $JENKINS_USER:$JENKINS_PASSWORD -o app.jar "$JOB_URL/lastBuild/artifact/target/couponservice-0.0.1-SNAPSHOT.jar"
 
