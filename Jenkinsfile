@@ -10,7 +10,7 @@ pipeline {
         GIT_REPO = 'https://github.com/Yajanth/couponservice'
         GIT_CREDENTIALS_ID = 'Yajanth'  // Replace with your Jenkins credentials ID
         APP_IMAGE = 'couponservice'
-        DB_IMAGE = 'mysql:8'  // Official MySQL image
+        DB_IMAGE = 'coupondb'  
     }
 
     stages {
@@ -78,7 +78,7 @@ pipeline {
         //             sh 'docker-compose down'
 
         //             echo 'Pulling latest images...'
-        //             sh "docker pull ${DOCKER_HUB_USER}/${APP_IMAGE}:latest"
+        //             sh "docker pull ${DOCKER_HUB_USER}/${APP_IMAGE}:v1"
 
         //             echo 'Starting new deployment...'
         //             sh 'docker-compose up -d'
