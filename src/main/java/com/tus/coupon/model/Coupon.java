@@ -6,8 +6,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 
 
+@AllArgsConstructor @NoArgsConstructor
 @Entity
 public class Coupon {
 
@@ -17,6 +20,8 @@ public class Coupon {
 	private String code;
 	private BigDecimal discount;
 	private String expDate;
+
+
 
 	public String getCode() {
 		return code;

@@ -119,4 +119,8 @@
 			</plugin>
 		</plugins>
 	</build>
+<<<<<<< HEAD
 </project>
+=======
+</project>
+>>>>>>> feature/jenkins_integration
