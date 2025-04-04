@@ -71,7 +71,7 @@ pipeline {
             }
         }
 
-        stage('Deploy with Docker Compose') {
+     stage('Deploy with Docker Compose') {
             steps {
                 script {
                     echo 'Stopping existing containers...'
@@ -89,5 +89,4 @@ pipeline {
             }
         }
     }
- }
 }
