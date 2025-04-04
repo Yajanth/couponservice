@@ -27,3 +27,22 @@ Clone this repository to your local machine using the following command:
 
 ```bash
 git clone https://github.com/yourusername/spring-boot-coupon-api.git
+
+### 2.Navigate to the project directory:
+
+'''bash
+cd coupon-api
+
+### 2.Build the project using Maven:
+
+'''bash
+mvn clean install
+
+
+### 3.Run the application:
+'''
+bash
+mvn spring-boot:run
+
+
+
