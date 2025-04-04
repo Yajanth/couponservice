@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     tools {
-        maven 'maven'  // Ensure Maven is installed in Jenkins- iNstalled
+        maven 'maven'  // Ensure Maven is installed in Jenkins
         jdk 'JDK17'
     }
     
@@ -58,20 +58,20 @@ pipeline {
             steps {
                 script {
                     withCredentials([usernamePassword(credentialsId: 'docker_hub_credentials', usernameVariable: 'DOCKER_HUB_USER', passwordVariable: 'DOCKER_HUB_PASS')]) {
+                        echo "Logging into Docker Hub..."
+                        sh "echo '${DOCKER_HUB_PASS}' | docker login -u '${DOCKER_HUB_USER}' --password-stdin"
+                        
+                        echo 'Building Docker image for the application...'
+                        sh "docker build --no-cache -t ${DOCKER_HUB_USER}/${APP_IMAGE}:latest ."
 
-                    echo "Logging into Docker Hub..."
-                    sh "echo '${DOCKER_HUB_PASS}' | docker login -u '${DOCKER_HUB_USER}' --password-stdin"
-                    
-                    echo 'Building Docker image for the application...'
-                    sh "docker build --no-cache -t ${DOCKER_HUB_USER}/${APP_IMAGE}:latest ."
-
-                    echo 'Pushing application image to Docker Hub...'
-                    sh "docker push ${DOCKER_HUB_USER}/${APP_IMAGE}:latest"
+                        echo 'Pushing application image to Docker Hub...'
+                        sh "docker push ${DOCKER_HUB_USER}/${APP_IMAGE}:latest"
+                    }
                 }
             }
         }
 
-     stage('Deploy with Docker Compose') {
+        stage('Deploy with Docker Compose') {
             steps {
                 script {
                     echo 'Stopping existing containers...'
