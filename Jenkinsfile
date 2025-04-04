@@ -76,7 +76,7 @@ pipeline {
             steps {
                 script {
                     echo 'Stopping existing containers...'
-                    sh 'docker compose down'
+                    sh 'docker compose down -v'
 
                     echo 'Pulling latest images...'
                     sh "docker pull ${DOCKER_HUB_USER}/${APP_IMAGE}:v1"
