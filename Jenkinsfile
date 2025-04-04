@@ -9,6 +9,7 @@ pipeline {
     environment {
         GIT_REPO = 'https://github.com/Yajanth/couponservice'
         GIT_CREDENTIALS_ID = 'Yajanth'  // Replace with your Jenkins credentials ID
+        DOCKER_HUB_USER = 'yajanthrr'
         APP_IMAGE = 'couponservice'
         DB_IMAGE = 'coupondb'  
     }
