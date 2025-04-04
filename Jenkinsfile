@@ -75,16 +75,16 @@ pipeline {
             steps {
                 script {
                     echo 'Stopping existing containers...'
-                    sh 'docker-compose down'
+                    sh 'docker compose down'
 
                     echo 'Pulling latest images...'
                     sh "docker pull ${DOCKER_HUB_USER}/${APP_IMAGE}:v1"
 
                     echo 'Starting new deployment...'
-                    sh 'docker-compose up -d'
+                    sh 'docker compose up -d'
                     
                     echo 'Showing docker-compose logs...'
-                    sh 'docker-compose logs'
+                    sh 'docker compose logs'
                 }
             }
         }
