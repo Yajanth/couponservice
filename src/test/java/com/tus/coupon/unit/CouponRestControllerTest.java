@@ -63,8 +63,14 @@ class CouponRestControllerTest {
                 .andExpect(jsonPath("$.expDate").value("2025-12-31"));
     }
     @Test
-    void contextLoads() {
-   }
+    void testGetAllCouponsEmpty() throws Exception {
+        when(repo.findAll()).thenReturn(List.of());
+
+        mockMvc.perform(get("/couponapi/coupons"))
+                .andExpect(status().isOk())
+                .andExpect(content().json("[]"));
+    }
+
 
     @Test
     void testGetCouponByCouponCode() throws Exception {
