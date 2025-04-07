@@ -98,26 +98,27 @@
 			</plugin>
 
 			<!-- JaCoCo Plugin for Test Coverage -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.8</version> <!-- Use latest version if necessary -->
-				<executions>
-					<execution>
-						<id>prepare-agent</id> <!-- Unique ID for the first execution -->
-						<goals>
-							<goal>prepare-agent</goal> <!-- Prepare JaCoCo agent -->
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id> <!-- Unique ID for the second execution -->
-						<goals>
-							<goal>report</goal> <!-- Generate the coverage report -->
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>0.8.10</version>
+					<executions>
+						<execution>
+							<id>prepare-agent</id>
+							<goals>
+								<goal>prepare-agent</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>report</id>
+							<phase>verify</phase>
+							<goals>
+								<goal>report</goal>
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
 	</build>
 
 </project>
