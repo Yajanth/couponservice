@@ -45,15 +45,15 @@ pipeline {
             }
         }
         
-        // stage('SonarQube Analysis') {
-        //     environment {
-        //         SONAR_HOST_URL = "http://localhost:9000"
-        //         SONAR_AUTH_TOKEN = credentials('SonarQubeNew')
-        //     }
-        //     steps {
-        //         sh "mvn sonar:sonar -Dsonar.projectKey=InterestCalculatorPipeline -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_AUTH_TOKEN"
-        //     }
-        // }
+        stage('SonarQube Analysis') {
+            environment {
+                SONAR_HOST_URL = "http://localhost:9000"
+                SONAR_AUTH_TOKEN = credentials('SonarToken')
+            }
+            steps {
+                sh "mvn sonar:sonar -Dsonar.projectKey=Coupon_service_analysis -Dsonar.host.url=$SONAR_HOST_URL -Dsonar.token=$SONAR_AUTH_TOKEN"
+            }
+        }
         
         stage('Build and Push Docker Images') {
             steps {
