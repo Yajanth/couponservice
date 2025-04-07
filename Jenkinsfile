@@ -5,7 +5,7 @@ pipeline {
         maven 'maven'
         jdk 'JDK17'
     }
-
+//trigger1
     environment {
         GIT_REPO = 'https://github.com/Yajanth/couponservice'
         GIT_CREDENTIALS_ID = 'Yajanth'
