@@ -8,7 +8,6 @@ pipeline {
 //trigger1
     environment {
         GIT_REPO = 'https://github.com/Yajanth/couponservice'
-        GIT_CREDENTIALS_ID = 'Yajanth'
         DOCKER_HUB_USER = 'yajanthrr'
         APP_IMAGE = 'couponservice'
         DB_IMAGE = 'coupondb'
