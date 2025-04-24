@@ -12,7 +12,7 @@ services:
       - SPRING_DATASOURCE_PASSWORD=root@123
     ports:
       - "9095:9095"
-    restart: on-failure
+    # restart: on-failure
     depends_on:
       - db
     networks:
@@ -24,12 +24,18 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=root@123
       - MYSQL_DATABASE=servicedb
-    restart: always
+    # restart: always
     ports:
       - "3307:3306"  # Host port mapped to container's MySQL port for external access
+    volumes:
+      - db_data:/var/lib/mysql   
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - springboot-network
 
 networks:
   springboot-network:
     driver: bridge
+
+volumes:
+  db_data:
